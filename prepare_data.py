@@ -12,7 +12,7 @@ SAMPLES_PER_CATEGORY = 600
 RANDOM_SEED = 42
 TRAIN_RATIO = 0.8
 VAL_RATIO = 0.1
-TOP5_CATEGORIES = ["politics", "sports", "literature", "national", "editorial"]
+TOP6_CATEGORIES = ["politics", "national", "society", "economy", "sports", "global"]
 
 
 def clean_text(text: str) -> str:
@@ -40,7 +40,7 @@ def main():
 
     rows = []
     for i, sample in enumerate(ds["train"]):
-        if sample.get("clean_categories") in TOP5_CATEGORIES:
+        if sample.get("clean_categories") in TOP6_CATEGORIES:
             text = f"{sample.get('heading', '')} {sample.get('text', '')}".strip()
             rows.append({
                 "text": text,
