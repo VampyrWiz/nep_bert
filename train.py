@@ -101,7 +101,6 @@ def main():
         per_device_eval_batch_size=BATCH_SIZE,
         gradient_accumulation_steps=GRAD_ACCUM,
         num_train_epochs=EPOCHS,
-        warmup_ratio=0.1,
         weight_decay=0.01,
         fp16=torch.cuda.is_available(),
         load_best_model_at_end=True,
