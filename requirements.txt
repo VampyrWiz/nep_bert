@@ -3,3 +3,4 @@ torch
 datasets
 scikit-learn
 pandas
+accelerate
