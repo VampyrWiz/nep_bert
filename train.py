@@ -20,10 +20,10 @@ DATA_DIR = Path("data")
 MODEL_DIR = Path("model")
 MODEL_NAME = "Rajan/NepaliBERT"
 MAX_LEN = 128
-BATCH_SIZE = 8
+BATCH_SIZE = 16
 GRAD_ACCUM = 2
-EPOCHS = 4
-LR = 2e-5
+EPOCHS = 10
+LR = 1e-5
 
 
 class NewsDataset(Dataset):
