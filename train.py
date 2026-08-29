@@ -10,12 +10,10 @@ import torch
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from torch.utils.data import Dataset
 from transformers import (
-    AdamW,
     AutoModelForSequenceClassification,
     AutoTokenizer,
     Trainer,
     TrainingArguments,
-    get_linear_schedule_with_warmup,
 )
 
 DATA_DIR = Path("data")
