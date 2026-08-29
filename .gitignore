@@ -1,1 +1,6 @@
 .ai_project
+data/
+model/
+*.parquet
+__pycache__/
+*.pyc
