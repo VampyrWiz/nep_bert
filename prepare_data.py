@@ -8,11 +8,11 @@ import pandas as pd
 from datasets import load_dataset
 
 DATA_DIR = Path("data")
-SAMPLES_PER_CATEGORY = 600
+SAMPLES_PER_CATEGORY = 6000
 RANDOM_SEED = 42
 TRAIN_RATIO = 0.8
 VAL_RATIO = 0.1
-TOP6_CATEGORIES = ["politics", "national", "society", "economy", "sports", "global"]
+TOP6_CATEGORIES = ["politics", "national", "health", "economy", "sports", "global"]
 
 
 def clean_text(text: str) -> str:
@@ -47,7 +47,7 @@ def main():
                 "category": sample["clean_categories"],
             })
         # Stop once we have enough per category
-        if i > 500_000:
+        if i > 600_000:
             break
 
     df = pd.DataFrame(rows)
