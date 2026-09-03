@@ -28,7 +28,7 @@ DATA_DIR = Path("data")               # Output directory for CSVs and labels.jso
 SAMPLES_PER_CATEGORY = 15000          # Target samples per category after balancing.
                                       # With 6 categories, total = 90,000 samples.
                                       # More data generally improves generalization.
-RANDOM_SEED = 42                      # Reproducible shuffling and sampling
+RANDOM_SEED = 10                      # Reproducible shuffling and sampling
 TRAIN_RATIO = 0.8                     # 80% of data for training
 VAL_RATIO = 0.1                       # 10% for validation (hyperparameter tuning)
                                       # Remaining 10% goes to test (final evaluation)
@@ -65,24 +65,10 @@ def clean_text(text: str) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
-def data_exists():
-    """Check if all required output files already exist."""
-    return all((DATA_DIR / f).exists() for f in ["train.csv", "val.csv", "test.csv", "labels.json"])
-
-
-# ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
 
 def main():
-    # Skip if data already prepared (idempotent)
-    if data_exists():
-        print(f"Data already exists in {DATA_DIR}/ — skipping download.")
-        return
-
     # ---- Step 1: Stream and filter ----
     # Streaming avoids downloading the full dataset (~2GB) upfront.
     # We iterate through the HuggingFace dataset, keeping only articles
